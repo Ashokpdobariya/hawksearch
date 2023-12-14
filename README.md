@@ -1,4 +1,4 @@
-# hawksearch
+# Hawksearch
 
 
 Serach Box  for Hyvä Themes
