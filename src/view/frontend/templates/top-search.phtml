@@ -1,0 +1,59 @@
+<?php
+/**
+ * Copyright (c) 2022 Hawksearch (www.hawksearch.com) - All Rights Reserved
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+ * IN THE SOFTWARE.
+ */
+
+/** @var $block \Magento\Framework\View\Element\Template */
+/** @var $escaper \Magento\Framework\Escaper */
+/** @var $helper \Magento\Search\Helper\Data */
+$helper = $this->helper(\Magento\Search\Helper\Data::class);
+?>
+<!--  -->
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="HawkSearch_EsIndexing/js/vue-hawksearch-app" src="http://165.232.178.196/extmagento//pub/static/frontend/Magento/luma/en_US/HawkSearch_EsIndexing/js/vue-hawksearch-app.js"></script>
+<div class="block block-search">
+    <!-- <div class="block block-title"><strong><?= $block->escapeHtml(__('Search')) ?></strong></div> -->
+    <div class="block block-content">
+        <form class="form minisearch" id="search_mini_form"
+              action="<?= $block->escapeUrl($helper->getResultUrl()) ?>" method="get">
+            <div class="field search">
+                <label class="label" for="search" data-role="minisearch-label">
+                    <span><?= $block->escapeHtml(__('Search')) ?></span>
+                </label>
+                <div class="control">
+                    <div data-vue-hawksearch-component="searchbox" data-vue-hawksearch-config="hawksearch-config-searchbox">
+                        
+                    <div class="hawk">
+                            <div class="hawk__header">
+                                <search-box search-page="/catalogsearch/result"
+                                            id="search"
+                                            name="<?= $escaper->escapeHtmlAttr($helper->getQueryParamName()) ?>"
+                                            class="input-text"
+                                ></search-box>
+                            </div>
+                        </div>
+                    </div>
+                    <?= $block->getChildHtml() ?>
+                </div>
+            </div>
+            <div class="actions">
+                <button type="submit"
+                        title="<?= $block->escapeHtmlAttr(__('Search')) ?>"
+                        class="action search"
+                        aria-label="Search"
+                >
+                    <span><?= $block->escapeHtml(__('Search')) ?></span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
