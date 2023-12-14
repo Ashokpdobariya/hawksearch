@@ -1,7 +1,7 @@
 # hawksearch
 
 
-Qty manager  for Hyvä Themes
+Serach Box  for Hyvä Themes
 
 ## What does it do?
 
